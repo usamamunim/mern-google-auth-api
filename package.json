@@ -1,0 +1,30 @@
+{
+  "name": "mern-google-auth-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://usamamunim: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@github.com/usamamunim/mern-google-auth-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/usamamunim/mern-google-auth-api/issues"
+  },
+  "homepage": "https://github.com/usamamunim/mern-google-auth-api#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.1",
+    "mongoose": "^7.3.3",
+    "nodemon": "^3.0.1"
+  }
+}
