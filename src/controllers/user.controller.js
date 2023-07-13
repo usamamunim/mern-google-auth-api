@@ -2,6 +2,25 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const UserController = {
+  login: async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      const user = await User.findOne({ email });
+      if (!user || !bcrypt.compareSync(password, user.password))
+        return res.status(404).json({ msg: 'Invalid credentials' });
+
+      const token = await jwt.sign(
+        { userId: user },
+        process.env.TOKEN_SECRETE,
+        {
+          expiresIn: '10h',
+        }
+      );
+      res.status(200).json({ user, token });
+    } catch (error) {
+      res.status(500).json({ msg: 'Internal server error' });
+    }
+  },
   signup: async (req, res) => {
     try {
       const { email, password } = req.body;
