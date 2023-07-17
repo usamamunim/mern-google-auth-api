@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const UserController = {
   login: async (req, res) => {
     try {
+      console.log('login action');
       const { email, password } = req.body;
       const user = await User.findOne({ email });
       if (!user || !bcrypt.compareSync(password, user.password))
